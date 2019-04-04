@@ -1,0 +1,17 @@
+version: 0.2
+env:
+  parameter-store:
+    SONARQUBE_TOKEN: "025d31ec26d8b8920fe4f565f848c3a439d630a0"
+    SONARQUBE_ENDPOINT: "http://52.68.49.41:9000"
+    GITHUB_TOKEN: "16904d30cdd50ed31fc498798ab4715c3e30f822"
+phases:
+  install:
+    commands:
+      - wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+      - unzip sonar-scanner-cli-3.2.0.1227-linux.zip -d .build
+      - export PATH=$PATH:./.build/sonar-scanner-3.2.0.1227-linux/bin
+  build:
+    commands:
+      - mvn sonar:sonar   -Dsonar.projectKey=java-maven-junit-helloworld   -Dsonar.host.url=${SONARQUBE_ENDPOINT}   -Dsonar.login=${SONARQUBE_TOKEN}
+      - export PULL_REQUEST_ID=`echo ${CODEBUILD_SOURCE_VERSION} | sed -e 's/pr\///'`
+      - sonar-scanner -Dsonar.login=${SONARQUBE_TOKEN} -Dsonar.github.oauth=${GITHUB_TOKEN} -Dsonar.github.pullRequest=${PULL_REQUEST_ID} -Dsonar.host.url=${SONARQUBE_ENDPOINT}
