@@ -14,4 +14,5 @@ phases:
     commands:
       # - mvn sonar:sonar   -Dsonar.projectKey=java-maven-junit-helloworld   -Dsonar.host.url=${SONARQUBE_ENDPOINT}   -Dsonar.login=${SONARQUBE_TOKEN}
       - export PULL_REQUEST_ID=`echo ${CODEBUILD_SOURCE_VERSION} | sed -e 's/pr\///'`
-      - sonar-scanner -Dsonar.login=${SONARQUBE_TOKEN} -Dsonar.github.oauth=${GITHUB_TOKEN} -Dsonar.github.pullRequest=${PULL_REQUEST_ID} -Dsonar.host.url=${SONARQUBE_ENDPOINT}
+      # - sonar-scanner -Dsonar.login=${SONARQUBE_TOKEN} -Dsonar.github.oauth=${GITHUB_TOKEN} -Dsonar.github.pullRequest=${PULL_REQUEST_ID} -Dsonar.host.url=${SONARQUBE_ENDPOINT}
+      - mvn sonar:sonar -Dsonar.projectKey=sonarqube-test -Dsonar.login=${SONARQUBE_TOKEN} -Dsonar.github.oauth=${GITHUB_TOKEN} -Dsonar.host.url=${SONARQUBE_ENDPOINT}
