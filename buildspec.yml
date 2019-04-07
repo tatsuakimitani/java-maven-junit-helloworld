@@ -8,7 +8,7 @@ phases:
   install:
     commands:
       - curl -s -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip -o sonarscanner.zip
-      - unzip sonar-scanner-cli-3.3.0.1492-linux.zip -d .build
+      - unzip sonarscanner.zip -d .build
       - export PATH=$PATH:./.build/sonar-scanner-3.3.0.1492-linux/bin
   build:
     commands:
