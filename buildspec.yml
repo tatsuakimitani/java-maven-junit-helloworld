@@ -10,7 +10,7 @@ phases:
       # - wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
       - wget https://github.com/SonarSource/sonar-scanner-cli/archive/3.3.0.1492.zip
       - unzip 3.3.0.1492.zip -d .build
-      - export PATH=$PATH:./.build/3.3.0.1492/bin
+      - export PATH=$PATH:./.build/sonar-scanner-cli-3.3.0.1492/bin
   build:
     commands:
       # - mvn sonar:sonar   -Dsonar.projectKey=java-maven-junit-helloworld   -Dsonar.host.url=${SONARQUBE_ENDPOINT}   -Dsonar.login=${SONARQUBE_TOKEN}
