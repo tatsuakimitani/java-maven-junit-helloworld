@@ -1,0 +1,8 @@
+sonar.projectKey=sonarqube-test
+sonar.projectName=<>
+sonar.projectBaseDir=.
+sonar.sources=.
+sonar.exclusions=.build/**
+ 
+sonar.analysis.mode=preview
+sonar.github.repository=https://github.com/tatsuakimitani/java-maven-junit-helloworld.git
