@@ -57,18 +57,18 @@ public class HelloAppTest {
         }
     }
 
-    @Test
-    public void testTooHighArgument() {
-        String[] args = {"999"};
+    // @Test
+    // public void testTooHighArgument() {
+    //     String[] args = {"999"};
 
-        try {
-            HelloApp.main(args);
-            fail("Unreachable.");
-        } catch (TestExitException e) {
-            // Did the program exit with the expected error code?
-            assertThat(e.getStatus(), is(HelloApp.EXIT_STATUS_HELLO_FAILED));
-        }
-    }
+    //     try {
+    //         HelloApp.main(args);
+    //         fail("Unreachable.");
+    //     } catch (TestExitException e) {
+    //         // Did the program exit with the expected error code?
+    //         assertThat(e.getStatus(), is(HelloApp.EXIT_STATUS_HELLO_FAILED));
+    //     }
+    // }
 
     @Test
     public void testDefaultArgument() {
